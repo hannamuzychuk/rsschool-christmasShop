@@ -4,91 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christmas Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <header>
         <div class="container">
+            <img src="icons/snowflake.svg" alt="Snowflake">
             <a href="index.html" class="logo">The gifts</a>
         </div>
         <nav>
             <ul>
-                <li><a href="">Gifts</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Best</a></li>
-                <li><a href="">Contacts</a></li>
+                <li><a href="gifts.html">Gifts</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#best">Best</a></li>
+                <li><a href="#contacts">Contacts</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
+        <section class="hero">
             <div class="container hero-container">
                 <p>Merry Christmas</p>
                 <h1>Gift yourself the magic of new possibilities</h1>
-                <button>Explore Magical Gifts</button>
+                <a href="gifts.html" class="btn">Explore Magical Gifts</a>
                 <p>and Happy New Year</p>
             </div>
         </section>
         
-        <section>
+        <section id="about" class="about">
             <div class="container about-container">
-                <p>About</p>
                 <div>
+                <p>About</p>
                 <h2>Unleash your inner superhero!</h2>
                 <p>This New Year marks the beginning of your journey to inner harmony and new strengths. We offer unique gifts that will help you improve your life.</p>
                 </div>
                 <div>
-                    <img src="" alt="Santa and Penguin">
                 </div>
+                 <img src="image/santa.png" alt="Santa and Penguin">
             </div>
         </section>
 
-        <section>
+        <section class="slider">
             <div class="container lcld-container">
                 <p>Become Happier!</p>
                 <h2>in the new 2025</h2>
                 <div class="lcld-item">
-                    <img src="" alt="Live">
                     <span>Live</span>
+                    <img src="image/snowman.png" alt="Snowman">
+
                 </div>
 
                 <div class="lcld-item">
-                    <img src="" alt="Create">
                     <span>Create</span>
+                    <img src="image/christmas-trees.png" alt="Christmas trees">
                 </div>
                 <div class="lcld-item">
-                    <img src="" alt="Love">
                     <span>Love</span>
+                    <img src="image/christmas-tree-ball.png" alt="Christmas tree ball">
                 </div>
                 <div class="lcld-item">
-                    <img src="" alt="Dream">
                     <span>Dream</span>
+                    <img src="image/fairytale-house.png" alt="Fairytale house">
                 </div>
             </div>
         </section>
 
-        <section>
+        <section id="best" class="best">
             <div class="container gifts-container">
                 <p>Best Gifts</p>
                  <h2>especially for you</h2>
                  <div class="gift-grid">
                     <div class="gift-card">
-                        <img src="" alt="Console.log Guru">
+                        <img src="image/console.log_guru.png" alt="Console.log Guru">
                         <p>For work</p>
                         <h3>Console.log Guru</h3>
                     </div>
                     <div class="gift-card">
-                        <img src="" alt="Hydration Bot">
+                        <img src="image/hydration_bot.png" alt="Hydration Bot">
                         <p>For health</p>
                         <h3>Hydration Bot</h3>
                     </div>
                     <div class="gift-card">
-                        <img src="" alt="Merge Master">
+                        <img src="image/merge_master.png" alt="Merge Master">
                         <p>For work</p>
                         <h3>Merge Master</h3>
                     </div>
                     <div class="gift-card">
-                        <img src="" alt="Spontaneous Coding Philosopher">
+                        <img src="image/spontaneous_coding.png" alt="Spontaneous Coding Philosopher">
                         <p>For harmony</p>
                         <h3>Spontaneous Coding Philosopher</h3>
                     </div>
@@ -96,27 +100,33 @@
             </div>
         </section>
 
-        <section>
+        <section class="subscribe">
             <div class="container subscribe-container">
                 <h2>Ready to start your journey to a better version of yourself?</h2>
-                <button>Explore Magical Gifts</button>
+                <a href="gifts.html" class="btn">Explore Magical Gifts</a>
                 <p>The New Year is Coming Soon...</p>
             </div>
         </section>
 
     </main>
 
-    <footer>
+    <footer is="contacts" class="footer">
         <div class="container contacts-container">
             <div class="footer-grid">
                  <div class="footer-card call-us">
-                    <h3>Call us</h3>
+                    <img src="icons/santa-claus.svg" alt="Santa Claus">
+                    <a href="tel:+123456789" class="card">+375 (29) 111-22-33</a>
+                    <p>Call us</p>
                 </div>
                 <div class="footer-card meet-us">
-                    <h3>Meet us</h3>
+                    <img src="icons/christmas-tree.svg" alt="Christmas tree">
+                    <a href="https://maps.google.com" target="_blank" class="card">Magic Forest</a>
+                    <p>Meet us</p>
                 </div>
                 <div class="footer-card write-us">
-                    <h3>Write us</h3>
+                    <img src="icons/snake.svg" alt=""Snake>
+                    <a href="mailto:test@mail.com" class="card">gifts@magic.com</a>
+                    <p>Write us</p>
                 </div>
             </div>
             <div class="social">
@@ -128,7 +138,8 @@
                 </ul>
             </div>
             <p>&copy; Copyright 2025, All Rights Reserved</p>
-            <p>Made in Rolling Scopes School</p>
+            <a href="https://rs.school" target="_blank">Made in Rolling Scopes School</a>
+
         </div>
         </footer>   
     
