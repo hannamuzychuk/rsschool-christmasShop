@@ -6,12 +6,16 @@
     <title>Christmas Shop</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <img src="icons/snowflake.svg" alt="Snowflake">
-            <a href="index.html" class="logo">The gifts</a>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="icons/snowflake.svg" alt="Logo icon">
+                <span>The gifts</span>
+            </a>
         </div>
         <nav>
             <ul>
@@ -21,6 +25,7 @@
                 <li><a href="#contacts">Contacts</a></li>
             </ul>
         </nav>
+        </div>
     </header>
 
     <main>
@@ -35,14 +40,14 @@
         
         <section id="about" class="about">
             <div class="container about-container">
-                <div>
-                <p>About</p>
+                <div class="about-card">
+                <p class="about-caption">About</p>
                 <h2>Unleash your inner superhero!</h2>
                 <p>This New Year marks the beginning of your journey to inner harmony and new strengths. We offer unique gifts that will help you improve your life.</p>
                 </div>
                 <div>
                 </div>
-                 <img src="image/santa.png" alt="Santa and Penguin">
+                 <img src="image/santa.png" width="638" height="528" alt="Santa and Penguin">
             </div>
         </section>
 
@@ -110,7 +115,7 @@
 
     </main>
 
-    <footer is="contacts" class="footer">
+    <footer id="contacts" class="footer">
         <div class="container contacts-container">
             <div class="footer-grid">
                  <div class="footer-card call-us">
@@ -124,7 +129,7 @@
                     <p>Meet us</p>
                 </div>
                 <div class="footer-card write-us">
-                    <img src="icons/snake.svg" alt=""Snake>
+                    <img src="icons/snake.svg" alt="Snake">
                     <a href="mailto:test@mail.com" class="card">gifts@magic.com</a>
                     <p>Write us</p>
                 </div>
