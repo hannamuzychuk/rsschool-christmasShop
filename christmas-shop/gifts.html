@@ -4,82 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gifts</title>
+    <!-- Upewnij się, że plik style.css jest w folderze css/ względem tego pliku -->
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <body>
-     <header class="header">
-        <div class="container">
-        <div class="header-container">
+    <header class="header">
+        <div class="container header-container">
             <a href="index.html" class="logo">
                 <img src="icons/snowflake.svg" alt="Logo icon">
                 <span>The gifts</span>
             </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="gifts.html">Gifts</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#best">Best</a></li>
-                <li><a href="#contacts">Contacts</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="gifts.html">Gifts</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#best">Best</a></li>
+                    <li><a href="index.html#contacts">Contacts</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main class="container">
+        <!-- Sekcja Hero z poprawnym domknięciem -->
         <section class="hero">
             <h1>Achieve health, harmony, and inner strength</h1>
-            <div class="social-icons">
-                <a href="https://facebook.com" class="social-link">
-                <img src="icons/social/telegram.svg" alt="Telegram">
-                </a>
-                <a href="https://instagram.com" class="social-link">
-                    <img src="icons/social/facebook.svg" alt="Facebook">
-                </a>
-                <a href="https://linkedin.com" class="social-link">
-                    <img src="icons/social/instagram.svg" alt="Instagram">
-                </a>
-                <a href="https://linkedin.com" class="social-link">
-                    <img src="icons/social/X.svg" alt="X.com">
-                </a>
-
-
+            <!-- Jeśli tutaj nie ma więcej treści, zamykamy sekcję -->
         </section>
     </main>
 
     <footer id="contacts" class="footer">
         <div class="container contacts-container">
             <div class="footer-grid">
-                 <div class="footer-card call-us">
+                <div class="footer-card call-us">
                     <img src="icons/santa-claus.svg" alt="Santa Claus">
                     <a href="tel:+123456789" class="card">+375 (29) 111-22-33</a>
-                    <p>Call us</p>
+                    <h3>Call us</h3>
                 </div>
                 <div class="footer-card meet-us">
                     <img src="icons/christmas-tree.svg" alt="Christmas tree">
                     <a href="https://maps.google.com" target="_blank" class="card">Magic Forest</a>
-                    <p>Meet us</p>
+                    <h3>Meet us</h3>
                 </div>
                 <div class="footer-card write-us">
                     <img src="icons/snake.svg" alt="Snake">
                     <a href="mailto:test@mail.com" class="card">gifts@magic.com</a>
-                    <p>Write us</p>
+                    <h3>Write us</h3>
                 </div>
             </div>
-            <div class="social">
-                <ul>
-                    <li>Telegram</li>
-                    <li>Facebook</li>
-                    <li>Instagram</li>
-                    <li>?</li>
-                </ul>
-            </div>
-            <p>&copy; Copyright 2025, All Rights Reserved</p>
-            <a href="https://rs.school" target="_blank">Made in Rolling Scopes School</a>
 
+            <div class="social-icons">
+                <a href="#" class="social-link"><img src="icons/social/telegram.svg" alt="Telegram"></a>
+                <a href="#" class="social-link"><img src="icons/social/facebook.svg" alt="Facebook"></a>
+                <a href="#" class="social-link"><img src="icons/social/instagram.svg" alt="Instagram"></a>
+                <a href="#" class="social-link"><img src="icons/social/X.svg" alt="X.com"></a>
+            </div>
+
+            <div class="copyright">
+                <p class="footer-paragraph">&copy; Copyright 2025, All Rights Reserved</p>
+                <a class="footer-link" href="https://rs.school" target="_blank">Made in Rolling Scopes School</a>
+            </div>
         </div>
-        </footer>      
-    
+    </footer>      
 </body>
 </html>
