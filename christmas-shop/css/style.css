@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #FF4646;
+ background: #fff;
   color: #181C29;
 }
 
@@ -82,9 +82,15 @@ nav a:hover {
   color: #ff4646;
 }
 
+nav a.active,
+.tabs a.active {
+  pointer-events: none;
+  cursor: default;
+}
+
 /* ================= HERO ================= */
 .hero {
-  /* background: #ff4646; */
+  background: #ff4646;
   color: white;
   text-align: center;
   padding: 120px 0;
@@ -142,6 +148,7 @@ nav a:hover {
 /* ================= ABOUT ================= */
 .about {
     padding: 60px 0;
+    background: #ff4646;
 }
 
 .about-container {
@@ -191,9 +198,14 @@ nav a:hover {
 }
 /* ================= SLIDER ================= */
 
+.slider {
+  background: #ff4646;
+}
+
 .lcld-container {
   text-align: center;
   padding: 60px 0;
+  
 }
 
 .slider-caption {
@@ -248,6 +260,10 @@ align-items: center;
 }
 
 /* ================= GIFTS ================= */
+.best {
+  background: #ff4646;
+}
+
 .gifts-container {
   padding: 60px 0;
 }
@@ -351,6 +367,7 @@ align-items: center;
 /* ================= CTA ================= */
 .subscribe {
   color: white;
+  background: #ff4646;
   text-align: center;
   align-items: center;
   padding-bottom: 200px;
@@ -359,7 +376,8 @@ align-items: center;
  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  min-width: 1440px;
+  
+  
   /* background-position: bottom center; */
 
   position: relative;
@@ -546,19 +564,36 @@ align-items: center;
 }
 
 /* ================= GIFTS PAGE ================= */
+.gifts {
+  padding-bottom: 60px;
+}
+
+.tabs {
+  background-color: #ff4646;
+  padding: 20px 0;
+}
+
 .tabs ul {
   display: flex;
-  gap: 20px;
+  gap: 30px; /* Zwiększa odstęp między elementami */
   list-style: none;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .tabs a {
   text-decoration: none;
-  color: black;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tabs a.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 12px 20px;
+  border-radius: 12px;
 }
 
 .tabs a:hover {
-  color: #ff4646;
+  background-color: rgba(255, 255, 255, 0.1);
 }
+
