@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: none;
 }
 
 html {
@@ -560,6 +560,13 @@ align-items: center;
     flex-direction: column; 
     align-items: center;    
     gap: 8px;             
+}
+
+.gift-card,
+.footer-card,
+.social-link,
+nav a {
+  transition: all 0.3s ease;
 }
 
 /* ================= GIFTS PAGE ================= */
