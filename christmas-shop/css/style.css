@@ -13,11 +13,14 @@ body {
   font-family: 'Montserrat', sans-serif;
  background: #fff;
   color: #181C29;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* CONTAINER */
 .container {
-  width: 1440px;
+  max-width: 1440px; 
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -76,10 +79,13 @@ nav a {
   text-decoration: none;
   color: black;
   padding: 12px 20px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
   color: #ff4646;
+  background-color: rgba(255, 70, 70, 0.1);
 }
 
 nav a.active,
@@ -138,6 +144,8 @@ nav a.active,
   line-height: 130%;
   letter-spacing: 5%;
   text-transform: uppercase;
+  border: 1px solid #181C29;
+  
 }
 
 .btn:hover {
@@ -339,7 +347,6 @@ align-items: center;
     font-weight: 600;
     line-height: 130%;
     letter-spacing: 5%;
-    /* padding-top: 20px; */
     padding-bottom: 8px;
 }
 
@@ -373,21 +380,14 @@ align-items: center;
   padding-bottom: 200px;
   padding-top: 120px;
   background-image: url("../image/background_subscribe.png");
- background-size: contain;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  
-  
-  /* background-position: bottom center; */
-
   position: relative;
-  /* overflow: hidden;
-  */
-
 }
 
 .subscribe h2 {
-    max-width: 430px;
+  max-width: 430px;
   font-size: 24px;
   font-weight: 600;
   line-height: 152%;
@@ -399,7 +399,7 @@ align-items: center;
 }
 
 .subscribe .btn {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .subscribe-caption {
@@ -417,13 +417,13 @@ align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.4); /* Półprzezroczysty biały */
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 40px;
   padding: 20px 40px;
   width: fit-content;
   margin: 20px auto 0 auto;
   color: #fff;
-  font-family: 'Montserrat', sans-serif; /* Lub inna, której używasz */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .countdown-item {
@@ -497,7 +497,6 @@ align-items: center;
     font-weight: 600;
     line-height: 152%;
     letter-spacing: 8%;
-    /* padding-bottom: 20px;   */
 }
 
 .footer .card {
@@ -564,36 +563,74 @@ align-items: center;
 }
 
 /* ================= GIFTS PAGE ================= */
-.gifts {
-  padding-bottom: 60px;
+
+
+.best-title {
+ display: none;
 }
 
-.tabs {
-  background-color: #ff4646;
-  padding: 20px 0;
-}
-
-.tabs ul {
-  display: flex;
-  gap: 30px; /* Zwiększa odstęp między elementami */
-  list-style: none;
-  justify-content: center;
-}
-
-.tabs a {
-  text-decoration: none;
+.hero.gifts-page {
+  background-color: #ff4646; 
+  background-image: url('../image/gifts-background.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  padding: 0;
+  min-height: 450px;
   color: #fff;
-  font-weight: bold;
+}
+
+.hero-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;  
+  padding-top: 224px;
+}
+
+.hero-text h1 {
+  text-align: left;             
+  margin: 0;
+  max-width: 430px;   
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;           
+}
+
+.hero-tabs ul {
+  display: flex;
+  gap: 30px;                     
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-tabs a {
+  color: #fff;
+  text-decoration: none;
   text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 
 .tabs a.active {
   background-color: rgba(255, 255, 255, 0.3);
-  padding: 12px 20px;
-  border-radius: 12px;
+  color: #fff;
+  pointer-events: none;
 }
 
 .tabs a:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+} 
+
+.best-gifts-container {
+  padding-bottom: 60px;
 }
 

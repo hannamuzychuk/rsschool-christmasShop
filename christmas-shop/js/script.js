@@ -15,7 +15,6 @@ setInterval(() => {
 }, 1000);
 
 
-// 1. Znajdź wszystkie linki wewnątrz nawigacji tabs
   const navLinks = document.querySelectorAll('.tabs a');
 
   navLinks.forEach(link => {
