@@ -6,7 +6,7 @@ A fixed layout two-page website created as part of the RS School Front-End cours
 
 ## 🚀 Live Demo
 
-👉 [https://hannamuzychuk.github.io/rsschool-christmasShop/](https://hannamuzychuk.github.io/rsschool-christmasShop/)
+👉 [https://hannamuzychuk.github.io/rsschool-christmasShop/](https://hannamuzychuk.github.io/rsschool-christmasShop/christmas-shop/gifts.html)
 
 ---
 
