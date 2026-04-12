@@ -66,25 +66,23 @@ document.addEventListener('DOMContentLoaded', () => {
        const width = window.innerWidth;
 
        if (width >= 1440) {
-           // DESKTOP: Wszystkie widoczne
+   
            sliderItems.forEach(item => {
                item.style.display = 'flex';
                item.classList.remove('tablet-active');
            });
        }
        else if (width >= 768) {
-           // TABLET (image_4cdc2a.png): Pokazujemy obecny i następny napis
            sliderItems.forEach((item, i) => {
-               // Czyścimy poprzednie klasy
                item.classList.remove('next-text');
               
                if (i === currentIndex) {
                    item.style.display = 'flex';
-                   item.classList.add('tablet-active'); // Klasa dla aktywnego z obrazkiem
+                   item.classList.add('tablet-active'); 
                }
                else if (i === currentIndex + 1) {
                    item.style.display = 'flex';
-                   item.classList.add('next-only'); // Klasa pokazująca TYLKO tekst
+                   item.classList.add('next-only'); 
                }
                else {
                    item.style.display = 'none';
@@ -92,18 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
            });
        }
        else {
-           // MOBILE: Tylko jeden element
+          
            sliderItems.forEach((item, i) => {
                item.style.display = (i === currentIndex) ? 'flex' : 'none';
                item.classList.remove('tablet-active', 'next-only');
            });
        }
 
-       // Blokowanie przycisków
+      
        prevBtn.disabled = currentIndex === 0;
        nextBtn.disabled = currentIndex === sliderItems.length - 1;
       
-       // Styl wizualny przycisków
+       
        prevBtn.style.opacity = currentIndex === 0 ? "0.5" : "1";
        nextBtn.style.opacity = currentIndex === sliderItems.length - 1 ? "0.5" : "1";
    }
