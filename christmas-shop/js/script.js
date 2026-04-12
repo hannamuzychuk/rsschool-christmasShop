@@ -15,11 +15,113 @@ setInterval(() => {
 }, 1000);
 
 
-  const navLinks = document.querySelectorAll('.tabs a');
+  const navTabs = document.querySelectorAll('.tabs a');
 
-  navLinks.forEach(link => {
+  navTabs.forEach(link => {
     link.addEventListener('click', function(event) {
-      navLinks.forEach(l => l.classList.remove('active'));
+      navTabs.forEach(l => l.classList.remove('active'));
       this.classList.add('active');
     });
   });
+
+
+  const burgerBtn = document.getElementById('burger-btn');
+const navMenu = document.getElementById('nav-menu');
+const body = document.body;
+const navLinks = document.querySelectorAll('.nav-list a');
+
+function toggleMenu() {
+   burgerBtn.classList.toggle('active');
+   navMenu.classList.toggle('active');
+   body.classList.toggle('lock');
+}
+
+burgerBtn.addEventListener('click', toggleMenu);
+
+navLinks.forEach(link => {
+   link.addEventListener('click', () => {
+       if (navMenu.classList.contains('active')) {
+           toggleMenu();
+       }
+   });
+});
+
+window.addEventListener('resize', () => {
+   if (window.innerWidth >= 768) {
+       burgerBtn.classList.remove('active');
+       navMenu.classList.remove('active');
+       body.classList.remove('lock');
+   }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+   const sliderItems = document.querySelectorAll('.lcld-item');
+   const prevBtn = document.getElementById('prev-btn');
+   const nextBtn = document.getElementById('next-btn');
+  
+   let currentIndex = 0;
+
+   function updateSlider() {
+       const width = window.innerWidth;
+
+       if (width >= 1440) {
+           // DESKTOP: Wszystkie widoczne
+           sliderItems.forEach(item => {
+               item.style.display = 'flex';
+               item.classList.remove('tablet-active');
+           });
+       }
+       else if (width >= 768) {
+           // TABLET (image_4cdc2a.png): Pokazujemy obecny i następny napis
+           sliderItems.forEach((item, i) => {
+               // Czyścimy poprzednie klasy
+               item.classList.remove('next-text');
+              
+               if (i === currentIndex) {
+                   item.style.display = 'flex';
+                   item.classList.add('tablet-active'); // Klasa dla aktywnego z obrazkiem
+               }
+               else if (i === currentIndex + 1) {
+                   item.style.display = 'flex';
+                   item.classList.add('next-only'); // Klasa pokazująca TYLKO tekst
+               }
+               else {
+                   item.style.display = 'none';
+               }
+           });
+       }
+       else {
+           // MOBILE: Tylko jeden element
+           sliderItems.forEach((item, i) => {
+               item.style.display = (i === currentIndex) ? 'flex' : 'none';
+               item.classList.remove('tablet-active', 'next-only');
+           });
+       }
+
+       // Blokowanie przycisków
+       prevBtn.disabled = currentIndex === 0;
+       nextBtn.disabled = currentIndex === sliderItems.length - 1;
+      
+       // Styl wizualny przycisków
+       prevBtn.style.opacity = currentIndex === 0 ? "0.5" : "1";
+       nextBtn.style.opacity = currentIndex === sliderItems.length - 1 ? "0.5" : "1";
+   }
+
+   nextBtn.addEventListener('click', () => {
+       if (currentIndex < sliderItems.length - 1) {
+           currentIndex++;
+           updateSlider();
+       }
+   });
+
+   prevBtn.addEventListener('click', () => {
+       if (currentIndex > 0) {
+           currentIndex--;
+           updateSlider();
+       }
+   });
+
+   window.addEventListener('resize', updateSlider);
+   updateSlider();
+});
