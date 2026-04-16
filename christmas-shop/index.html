@@ -59,7 +59,8 @@
            <div class="container lcld-container">
                <p class="slider-caption">Become Happier!</p>
                <h2>in the new 2025</h2>
-               <div class="lcld-card">
+              <div class="lcld-slider-window">
+              <div class="lcld-card">
                <div class="lcld-item">
                    <span>Live</span>
                    <img src="image/snowman.png" width="200" height="200" alt="Snowman">
@@ -78,6 +79,7 @@
                    <span>Dream</span>
                    <img src="image/fairytale-house.png" width="200" height="200" alt="Fairytale house">
                </div>
+             </div>
              </div>
              <div class="slider-controls">
     <button class="control-btn" id="prev-btn" aria-label="Previous slide" disabled>
@@ -198,6 +200,24 @@
                </div>
            </div>
        </footer>  
+  <div class="modal-backdrop" id="gift-modal-backdrop" aria-hidden="true">
+      <article class="gift-modal" role="dialog" aria-modal="true" aria-labelledby="gift-modal-title">
+          <button class="gift-modal-close" id="gift-modal-close" type="button" aria-label="Close modal">
+              <span></span>
+              <span></span>
+          </button>
+          <div class="gift-modal-image-wrap">
+              <img id="gift-modal-image" src="" alt="">
+          </div>
+          <div class="gift-modal-content">
+              <p class="gift-modal-category" id="gift-modal-category"></p>
+              <h3 class="gift-modal-title" id="gift-modal-title"></h3>
+              <p class="gift-modal-description" id="gift-modal-description"></p>
+              <div class="gift-modal-powers" id="gift-modal-powers"></div>
+          </div>
+      </article>
+  </div>
+  <script src="js/gifts-data.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

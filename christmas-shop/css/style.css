@@ -280,6 +280,10 @@ body.lock {
  padding: 0 8px;
 }
 
+.lcld-slider-window {
+  overflow: hidden;
+}
+
 .slider-caption {
  font-family: 'Allura', cursive;
  font-size: 24px;
@@ -303,38 +307,43 @@ body.lock {
 }
 
 .lcld-card {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  transition: transform 0.5s ease;
+  will-change: transform;
 }
 
 .lcld-item {
- display: flex;
- align-items: center;
- justify-content: space-between;
- position: relative;
- width: 100%;
- max-width: 100%;
- gap: 20px;
- box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  gap: 20px;
+  box-sizing: border-box;
 }
 
-.slider span {
- font-size: clamp(40px, 15vw, 80px);
+.lcld-item span {
+ font-size: 80px;
  line-height: 1;
  flex-shrink: 1;
  font-weight: 600;
  text-transform: uppercase;
   color: #fff;
   padding-left: 10px;
-
 }
 
 .lcld-item img {
  border-radius: 20px;
- /* margin-right: 20px; */
- object-fit: cover;
- margin-right: -10px;
+object-fit: cover;
+width: 200px;
+height: 200px;
+flex: 0 0 200px;
+margin-right: -10px;
 }
 
 .lcld-item:hover {
@@ -365,11 +374,18 @@ body.lock {
  justify-content: center;
  transition: 0.3s ease;
 }
-.slider-controls :hover {
-  background-color: #fff;
-  color: #ff4646;
 
+.control-btn:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
 
+@media (hover: hover) and (pointer: fine) {
+  .control-btn:hover:not(:disabled) {
+    background-color: #fff;
+    color: #ff4646;
+    border-color: #fff;
+  }
 }
 
 /* ================= GIFTS ================= */
@@ -480,6 +496,143 @@ body.lock {
    line-height: 152%;
    letter-spacing: 8%;
    padding-bottom: 20px;   
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 28, 41, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  z-index: 3000;
+}
+
+.modal-backdrop.is-open {
+  display: flex;
+}
+
+.gift-modal {
+  width: 100%;
+  max-width: 364px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ecf3f8;
+  position: relative;
+}
+
+.gift-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.gift-modal-close span {
+  position: absolute;
+  top: 19px;
+  left: 10px;
+  width: 20px;
+  height: 2px;
+  background: #181c29;
+}
+
+.gift-modal-close span:first-child {
+  transform: rotate(45deg);
+}
+
+.gift-modal-close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.gift-modal-image-wrap img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.gift-modal-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gift-modal-category {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: 5%;
+}
+
+.gift-modal-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 152%;
+  letter-spacing: 8%;
+}
+
+.gift-modal-description {
+  font-size: 16px;
+  line-height: 148%;
+  margin-bottom: 12px;
+}
+
+.gift-modal-powers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gift-modal-power-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.gift-modal-power-label,
+.gift-modal-power-value {
+  font-size: 16px;
+  line-height: 148%;
+}
+
+.gift-modal-power-label {
+  text-transform: capitalize;
+}
+
+.gift-modal-stars {
+  display: flex;
+  gap: 8px;
+}
+
+.gift-modal-stars img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.15;
+}
+
+.gift-modal-stars img.is-active {
+  opacity: 1;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.gift-card:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 
@@ -844,22 +997,17 @@ display: none;
    }
 
 .lcld-card {
-   flex-direction: row;
-   justify-content: flex-start;
-   overflow: visible;
-   
+  justify-content: flex-start;
+  overflow: visible;
+
  }
 
 .lcld-item {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   width: auto;
-   flex-shrink: 0;
+  width: auto;
+  gap: 20px;
  }
 
 .lcld-item img {
-   margin-right: 0;
    width: 200px;
    height: 200px;
  }
@@ -880,8 +1028,21 @@ display: none;
  .gift-card {
    margin: 0;
  }
+ .gift-modal {
+   max-width: 400px;
+ }
   .hero-text h1 {
     max-width: 426px;
+  }
+}
+
+@media only screen and (width: 768px) {
+  .burger-btn {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
   }
 }
 
@@ -948,6 +1109,10 @@ display: none;
 
  .gift-card {
    margin: 0;
+ }
+
+ .gift-modal {
+   max-width: 400px;
  }
 
  .footer-grid {
