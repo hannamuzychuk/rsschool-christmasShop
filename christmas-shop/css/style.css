@@ -699,7 +699,7 @@ body.modal-open {
  text-align: center;
  align-items: center;
  width: 100%;
- padding: 60px 0 120px 0;
+ padding: 60px 0 180px 0;
  background-image:url("../image/bg-snow.png"), url("../image/background_subscribe.png");
  background-size: auto, 1440px auto;
  background-position:center, center;
