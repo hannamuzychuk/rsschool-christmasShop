@@ -24,12 +24,6 @@ if (daysElement && hoursElement && minutesElement && secondsElement) {
 }
 
 const navTabs = document.querySelectorAll(".tabs a");
-navTabs.forEach((link) => {
-  link.addEventListener("click", function () {
-    navTabs.forEach((item) => item.classList.remove("active"));
-    this.classList.add("active");
-  });
-});
 
 const burgerBtn = document.getElementById("burger-btn");
 const navMenu = document.getElementById("nav-menu");
@@ -66,6 +60,8 @@ if (burgerBtn && navMenu) {
 }
 
 const bestGiftGrid = document.querySelector(".gifts-container .gift-grid");
+const giftsPageGrid = document.querySelector(".best-gifts-container .gift-grid");
+const giftsPageRoot = document.querySelector(".hero.gifts-page");
 const homeCategoryClass = {
   "for work": "best-work",
   "for health": "best-health",
@@ -76,25 +72,43 @@ const homeCategoryImage = {
   "for health": "image/hydration_bot.png",
   "for harmony": "image/spontaneous_coding.png"
 };
+let modalHandlersBound = false;
+
+function getCategoryImage(categoryValue) {
+  return homeCategoryImage[categoryValue.toLowerCase()] || "image/console.log_guru.png";
+}
+
+function createGiftCardMarkup(gift) {
+  const normalizedCategory = gift.category.toLowerCase();
+  const categoryClassName = homeCategoryClass[normalizedCategory] || "best-work";
+  const imageSrc = getCategoryImage(gift.category);
+
+  return `
+    <div class="gift-card">
+      <img src="${imageSrc}" alt="${gift.name}">
+      <div class="best-content">
+        <p class="${categoryClassName}">${gift.category}</p>
+        <h3>${gift.name}</h3>
+      </div>
+    </div>
+  `;
+}
+
+function shuffleArray(items) {
+  const array = [...items];
+
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
+}
 
 if (bestGiftGrid && giftsData.length >= 4) {
-  const randomGifts = [...giftsData].sort(() => Math.random() - 0.5).slice(0, 4);
+  const randomGifts = shuffleArray(giftsData).slice(0, 4);
 
-  bestGiftGrid.innerHTML = randomGifts.map((gift) => {
-    const normalizedCategory = gift.category.toLowerCase();
-    const categoryClassName = homeCategoryClass[normalizedCategory] || "best-work";
-    const imageSrc = homeCategoryImage[normalizedCategory] || "image/console.log_guru.png";
-
-    return `
-      <div class="gift-card">
-        <img src="${imageSrc}" alt="${gift.name}">
-        <div class="best-content">
-          <p class="${categoryClassName}">${gift.category}</p>
-          <h3>${gift.name}</h3>
-        </div>
-      </div>
-    `;
-  }).join("");
+  bestGiftGrid.innerHTML = randomGifts.map((gift) => createGiftCardMarkup(gift)).join("");
 }
 
 const modalBackdrop = document.getElementById("gift-modal-backdrop");
@@ -104,7 +118,43 @@ const modalCategory = document.getElementById("gift-modal-category");
 const modalTitle = document.getElementById("gift-modal-title");
 const modalDescription = document.getElementById("gift-modal-description");
 const modalPowers = document.getElementById("gift-modal-powers");
-const giftCards = document.querySelectorAll(".gift-card");
+function bindGiftCardInteractions(cards) {
+  cards.forEach((card) => {
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", `Open ${card.querySelector("h3")?.textContent?.trim() || "gift"} details`);
+
+    card.addEventListener("click", () => openModal(card));
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+}
+
+function bindModalGlobalHandlers() {
+  if (modalHandlersBound || !modalBackdrop) {
+    return;
+  }
+
+  modalClose?.addEventListener("click", closeModal);
+
+  modalBackdrop.addEventListener("click", (event) => {
+    if (event.target === modalBackdrop) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  modalHandlersBound = true;
+}
 
 const categoryClass = {
   "for work": "best-work",
@@ -199,33 +249,49 @@ function openModal(card) {
   body.classList.add("modal-open");
 }
 
-if (giftCards.length && modalBackdrop) {
-  giftCards.forEach((card) => {
-    card.setAttribute("tabindex", "0");
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-label", `Open ${card.querySelector("h3")?.textContent?.trim() || "gift"} details`);
+if (modalBackdrop) {
+  bindGiftCardInteractions(document.querySelectorAll(".gift-card"));
+  bindModalGlobalHandlers();
+}
 
-    card.addEventListener("click", () => openModal(card));
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openModal(card);
-      }
+function renderGiftsPageCards(filterValue = "all") {
+  if (!giftsPageGrid) {
+    return;
+  }
+
+  const filteredGifts = filterValue === "all"
+    ? shuffleArray(giftsData)
+    : giftsData.filter((gift) => gift.category.toLowerCase() === filterValue);
+
+  giftsPageGrid.innerHTML = filteredGifts.map((gift) => createGiftCardMarkup(gift)).join("");
+
+  if (modalBackdrop) {
+    bindGiftCardInteractions(giftsPageGrid.querySelectorAll(".gift-card"));
+    bindModalGlobalHandlers();
+  }
+}
+
+if (giftsPageGrid && giftsPageRoot) {
+  renderGiftsPageCards("all");
+
+  navTabs.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      navTabs.forEach((item) => item.classList.remove("active"));
+      link.classList.add("active");
+
+      const tabLabel = link.textContent.trim().toLowerCase();
+      const filterValue = tabLabel === "all" ? "all" : tabLabel;
+      renderGiftsPageCards(filterValue);
     });
   });
-
-  modalClose?.addEventListener("click", closeModal);
-
-  modalBackdrop.addEventListener("click", (event) => {
-    if (event.target === modalBackdrop) {
-      closeModal();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeModal();
-    }
+} else {
+  navTabs.forEach((link) => {
+    link.addEventListener("click", function () {
+      navTabs.forEach((item) => item.classList.remove("active"));
+      this.classList.add("active");
+    });
   });
 }
 
