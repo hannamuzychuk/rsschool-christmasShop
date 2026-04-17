@@ -42,7 +42,7 @@ img {
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding: 0 12px;
+ padding: 0 8px;
  position: relative;
 }
 
@@ -749,11 +749,6 @@ body.modal-open {
  padding: 8px 12px;
  border-radius: 20px;
  background-color: rgba(255, 255, 255, 0.4);
- border-radius: 20px;
- padding: 8px 20px 12px 20px;
- width: calc(100% - 10px);
- max-width: 330px;
- margin: 0 auto;
  color: #fff;
  font-family: 'Montserrat', sans-serif;
  box-sizing: border-box;
@@ -858,8 +853,10 @@ body.modal-open {
 .social-icons {
  display: flex;
  justify-content: center;
- gap: 20px;
- padding: 11px 12px;
+gap: 12px;
+width: 196px;
+margin: 0 auto;
+padding: 0;
 }
 
 .social-link {
@@ -1038,11 +1035,19 @@ display: none;
  pointer-events: none;
 }
 
+
 .best-gifts-container {
  padding-bottom: 60px;
  padding-left: 8px;
  padding-right: 8px;
 
+}
+
+/* Rounded bottom only on gifts page gifts section */
+main > .hero.gifts-page + #best.best {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
 }
 
 
