@@ -84,8 +84,22 @@ img {
  cursor: pointer;
 }
 
-nav {
- display: none;
+.nav {
+ position: fixed;
+ top: 64px;
+ right: 0;
+ width: 100%;
+ height: calc(100vh - 64px);
+ background: #fff;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ z-index: 1000;
+ transform: translateX(100%);
+ opacity: 0;
+ transition: transform 0.35s ease, opacity 0.25s ease;
+ pointer-events: none;
 }
 
 .burger-btn {
@@ -110,20 +124,12 @@ nav {
 }
 
 .nav.active {
- display: flex;
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100vh;
- background: #fff;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- z-index: 1000;
+ transform: translateX(0);
+ opacity: 1;
+ pointer-events: auto;
 }
 
-.nav.active .nav-list {
+.nav .nav-list {
  list-style: none;
  display: flex;
  flex-direction: column;
@@ -131,7 +137,7 @@ nav {
  text-align: center;
 }
 
-.nav.active .nav-list a {
+.nav .nav-list a {
  font-size: 24px;
  text-decoration: none;
  color: #181C29;
@@ -958,7 +964,7 @@ display: none;
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
     .container {
     max-width: 768px;
     }
@@ -968,6 +974,15 @@ display: none;
    }
 
    .nav {
+      position: static;
+      top: auto;
+      right: auto;
+      width: auto;
+      height: auto;
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      background: transparent;
       display: block;
    }
 
@@ -987,6 +1002,15 @@ display: none;
       text-transform: uppercase;
       border-radius: 20px;
       transition: 0.3s;
+   }
+
+   .nav .nav-list {
+      flex-direction: row;
+   }
+
+   .nav .nav-list a {
+      font-size: 12px;
+      padding: 12px 20px;
    }
   
     .about-container {
@@ -1045,16 +1069,6 @@ display: none;
 }
 }
 
-@media only screen and (width: 768px) {
-  .burger-btn {
-    display: flex;
-  }
-
-  .nav {
-    display: none;
-  }
-}
-
 @media only screen and (min-width: 1440px) and (hover: hover) and (pointer: fine) {
   .logo:hover {
     cursor: pointer;
@@ -1082,7 +1096,7 @@ display: none;
     color: #fff;
   }
 
-  .nav-list a:hover {
+  .nav .nav-list a:hover {
     color: #ff4646;
     background: rgba(255, 70, 70, 0.1);
   }
@@ -1105,7 +1119,7 @@ display: none;
    display: none;
  }
 
- nav {
+ .nav {
    display: block;
  }
 
@@ -1124,6 +1138,15 @@ display: none;
    text-transform: uppercase;
    border-radius: 20px;
    transition: 0.3s ease;
+ }
+
+ .nav .nav-list {
+   flex-direction: row;
+ }
+
+ .nav .nav-list a {
+   font-size: 12px;
+   padding: 12px 20px;
  }
 
  .about-container {
