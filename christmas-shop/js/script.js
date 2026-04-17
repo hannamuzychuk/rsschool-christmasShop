@@ -65,6 +65,38 @@ if (burgerBtn && navMenu) {
   });
 }
 
+const bestGiftGrid = document.querySelector(".gifts-container .gift-grid");
+const homeCategoryClass = {
+  "for work": "best-work",
+  "for health": "best-health",
+  "for harmony": "best-harmony"
+};
+const homeCategoryImage = {
+  "for work": "image/console.log_guru.png",
+  "for health": "image/hydration_bot.png",
+  "for harmony": "image/spontaneous_coding.png"
+};
+
+if (bestGiftGrid && giftsData.length >= 4) {
+  const randomGifts = [...giftsData].sort(() => Math.random() - 0.5).slice(0, 4);
+
+  bestGiftGrid.innerHTML = randomGifts.map((gift) => {
+    const normalizedCategory = gift.category.toLowerCase();
+    const categoryClassName = homeCategoryClass[normalizedCategory] || "best-work";
+    const imageSrc = homeCategoryImage[normalizedCategory] || "image/console.log_guru.png";
+
+    return `
+      <div class="gift-card">
+        <img src="${imageSrc}" alt="${gift.name}">
+        <div class="best-content">
+          <p class="${categoryClassName}">${gift.category}</p>
+          <h3>${gift.name}</h3>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
 const modalBackdrop = document.getElementById("gift-modal-backdrop");
 const modalClose = document.getElementById("gift-modal-close");
 const modalImage = document.getElementById("gift-modal-image");
