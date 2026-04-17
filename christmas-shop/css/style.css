@@ -80,6 +80,10 @@ img {
  cursor: pointer;
 }
 
+.logo:hover {
+ cursor: pointer;
+}
+
 nav {
  display: none;
 }
@@ -201,11 +205,6 @@ body.lock {
  /* border: 1px solid #181C29; */
  }
 
-.btn:hover {
- background: #fff;
- color: #181C29;
-}
-
 /* ================= ABOUT ================= */
 .about {
    padding: 60px 8px;
@@ -319,12 +318,8 @@ body.lock {
 .lcld-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
   gap: 20px;
-  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .lcld-item span {
@@ -344,12 +339,6 @@ width: 200px;
 height: 200px;
 flex: 0 0 200px;
 margin-right: -10px;
-}
-
-.lcld-item:hover {
- transform: scale(1.1);
- cursor: pointer;
-
 }
 
 .slider-controls {
@@ -380,7 +369,7 @@ margin-right: -10px;
   opacity: 0.4;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media only screen and (min-width: 1440px) and (hover: hover) and (pointer: fine) {
   .control-btn:hover:not(:disabled) {
     background-color: #fff;
     color: #ff4646;
@@ -446,13 +435,6 @@ margin-right: -10px;
  width: 100%;
  height: auto;
  display: block;
-}
-
-.gift-card:hover {
- transform: translateY(-5px);
- background: #ffecec;
- cursor: pointer;
- color: #ff4646;
 }
 
 .best-content {
@@ -767,14 +749,6 @@ body.modal-open {
 }
 
 
-.footer-card:hover,
-.footer-card a:hover {
- cursor: pointer;
- color: #ff4646;
-  transform: scale(1.01);
-}
-
-
 .footer h3 {
    text-transform: uppercase;
    font-size: 16px;
@@ -819,12 +793,6 @@ body.modal-open {
  object-fit: contain;
 }
 
-.social-link:hover img {
-  transform: scale(1.1);
-  filter: sepia(100%) saturate(500%) hue-rotate(310deg);
-}
-
-
 .footer-paragraph {
    font-size: 16px;
    font-weight: 400;
@@ -852,9 +820,8 @@ body.modal-open {
    gap: 8px;            
 }
 
-.copyright :hover,
-.copyright :focus {
-  color:#ff4646;
+.copyright a:focus-visible {
+  color: #ff4646;
 }
 
 .gift-card,
@@ -862,6 +829,50 @@ body.modal-open {
 .social-link,
 nav a {
  transition: all 0.3s ease;
+}
+
+@media only screen and (min-width: 1440px) and (hover: hover) and (pointer: fine) {
+  .footer-card:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+
+  .footer-card:hover .card,
+  .footer-card:hover h3,
+  .footer-card a:hover,
+  .footer-link:hover,
+  .copyright a:hover {
+    color: #ff4646;
+    cursor: pointer;
+  }
+
+  .social-link:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(42%) sepia(99%) saturate(1562%)
+      hue-rotate(328deg) brightness(102%) contrast(101%);
+  }
+}
+
+@media only screen and (min-width: 1440px) and (hover: hover) and (pointer: fine) {
+  .footer-card:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+
+  .footer-card:hover .card,
+  .footer-card:hover h3,
+  .footer-card a:hover,
+  .footer-link:hover,
+  .copyright a:hover {
+    color: #ff4646;
+    cursor: pointer;
+  }
+
+  .social-link:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(42%) sepia(99%) saturate(1562%)
+      hue-rotate(328deg) brightness(102%) contrast(101%);
+  }
 }
 
 /* ================= GIFTS PAGE ================= */
@@ -877,10 +888,10 @@ display: none;
  background-repeat: no-repeat;
  background-position: top center;
  background-size: contain;
- min-height: 380px;
+ min-height: 316px;
  color: #fff;
  display: flex;
- align-items: center;
+ align-items: end;
  justify-content: center;
  padding: 0;
 
@@ -939,11 +950,6 @@ display: none;
  pointer-events: none;
 }
 
-.tabs a:hover {
- background-color: rgba(255, 255, 255, 0.1);
- color: #fff;
-}
-
 .best-gifts-container {
  padding-bottom: 60px;
  padding-left: 8px;
@@ -983,11 +989,6 @@ display: none;
       transition: 0.3s;
    }
   
-    .nav-list a:hover {
-      color: #ff4646;
-      background: rgba(255, 70, 70, 0.1);
-    }
-
     .about-container {
       flex-direction: row;
       align-items: center;
@@ -1034,6 +1035,14 @@ display: none;
   .hero-text h1 {
     max-width: 426px;
   }
+
+  .hero.gifts-page {
+    min-height: 220px;
+}
+
+  .hero.gifts-page {
+    min-height: 220px;
+}
 }
 
 @media only screen and (width: 768px) {
@@ -1043,6 +1052,39 @@ display: none;
 
   .nav {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (hover: hover) and (pointer: fine) {
+  .logo:hover {
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: #fff;
+    color: #181C29;
+  }
+
+  .lcld-item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .gift-card:hover {
+    transform: translateY(-5px);
+    background: #ffecec;
+    cursor: pointer;
+    color: #ff4646;
+  }
+
+  .tabs a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .nav-list a:hover {
+    color: #ff4646;
+    background: rgba(255, 70, 70, 0.1);
   }
 }
 
@@ -1082,11 +1124,6 @@ display: none;
    text-transform: uppercase;
    border-radius: 20px;
    transition: 0.3s ease;
- }
-
- .nav-list a:hover {
-   color: #ff4646;
-   background: rgba(255, 70, 70, 0.1);
  }
 
  .about-container {
@@ -1129,5 +1166,24 @@ display: none;
    justify-content: center;
    padding: 0;
  }
+
+ .footer-card a:focus-visible,
+ .footer-link:focus-visible,
+ .social-link:focus-visible {
+   outline: 2px solid #ff4646;
+   outline-offset: 3px;
+   border-radius: 12px;
+ }
+ 
+ .footer-card:focus-within {
+   transform: scale(1.01);
+ }
+ 
+ .footer-card:focus-within .card,
+ .footer-card:focus-within h3 {
+   color: #ff4646;
+ }
+ 
+
 }
 
