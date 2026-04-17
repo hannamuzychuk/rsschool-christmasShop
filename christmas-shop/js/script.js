@@ -9,10 +9,12 @@ const minutesElement = document.getElementById("minutes");
 const secondsElement = document.getElementById("seconds");
 
 if (daysElement && hoursElement && minutesElement && secondsElement) {
-  const targetDate = new Date("Jan 1, 2027 00:00:00").getTime();
+  const now = new Date();
+  const targetDate = Date.UTC(now.getUTCFullYear() + 1, 0, 1, 0, 0, 0);
+
   setInterval(() => {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
+    const currentTime = Date.now();
+    const diff = Math.max(0, targetDate - currentTime);
 
     daysElement.textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
     hoursElement.textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);

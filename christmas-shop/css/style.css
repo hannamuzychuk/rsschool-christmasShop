@@ -675,6 +675,12 @@ body.modal-open {
  display: flex;
  justify-content: center;
  align-items: center;
+ width: 344px;
+ max-width: 100%;
+ min-height: 72px;
+ margin: 0 auto;
+ padding: 8px 12px;
+ border-radius: 20px;
  background-color: rgba(255, 255, 255, 0.4);
  border-radius: 20px;
  padding: 8px 20px 12px 20px;
@@ -691,28 +697,37 @@ body.modal-open {
  display: flex;
  flex-direction: column;
  align-items: center;
- min-width: 50px;
+ justify-content: center;
+ width: 80px;
+ min-width: 80px;
+ text-align: center;
 }
 
 .number {
  font-size: 24px;
- font-weight: 700;
- line-height: 1;
+ font-weight: 600;
+ line-height: 150%;
+ letter-spacing: 0.16em;
+ text-transform: uppercase;
 }
 
 .label {
  font-size: 12px;
  text-transform: uppercase;
- margin-top: 8px;
- font-weight: 500;
- letter-spacing: 1px;
+ margin-top: 0;
+ font-weight: 600;
+ line-height: 130%;
+ letter-spacing: 0.05em;
 }
 
 .divider {
- font-size: 28px;
- opacity: 0.5;
- margin: 0 10px;
- font-weight: 300;
+ width: 1px;
+ height: 20px;
+ background: rgba(255, 255, 255, 0.4);
+ margin: 0;
+ font-size: 0;
+ line-height: 0;
+ overflow: hidden;
 }
 
 /* ================= FOOTER ================= */
