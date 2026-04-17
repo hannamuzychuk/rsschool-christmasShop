@@ -813,9 +813,13 @@ body.modal-open {
  align-items: center;
  justify-content: center;
  width: 100%;
+min-height: 204px;
  background: #ECF3F8;
  padding: 20px;
  border-radius: 20px;
+display: flex;
+flex-direction: column;
+gap: 12px;
 }
 
 .footer-card img {
@@ -828,7 +832,7 @@ body.modal-open {
  text-decoration: none;
  color: black;
  display: block;
- margin: 12px 0;
+margin: 0;
 }
 
 
@@ -892,7 +896,7 @@ padding: 0;
  font-weight: 400;
  line-height: 100%;
  letter-spacing: 5%;
- margin-top: 12px; 
+ margin-top: 0;
  text-align: center;
  text-decoration: none;
  color: #181C29;;
@@ -902,7 +906,8 @@ padding: 0;
    display: flex;
    flex-direction: column;
    align-items: center;   
-   gap: 8px;            
+  gap: 12px;
+  margin-top: 12px;
 }
 
 .copyright a:focus-visible {
@@ -1030,7 +1035,7 @@ display: none;
 }
 
 .tabs a.active {
- background-color: rgba(255, 255, 255, 0.3);
+ background-color: rgba(255, 255, 255, 0.2);
  color: #fff;
  pointer-events: none;
 }
@@ -1157,6 +1162,63 @@ main > .hero.gifts-page + #best.best {
 }
 
 @media only screen and (width: 768px) {
+  .subscribe {
+    padding-bottom: 180px;
+  }
+
+  .about-container {
+    display: grid;
+    grid-template-columns: 376px 376px;
+    width: 752px;
+    max-width: 100%;
+    height: 528px;
+  }
+
+  .about-card {
+    width: 100%;
+    margin: 0;
+    padding: 46px 60px;
+  }
+
+  .about h2,
+  .about-text {
+    max-width: 256px;
+  }
+
+  .about-img {
+    width: 100%;
+    height: 528px;
+    min-height: 528px;
+    margin: 0;
+    border-radius: 20px;
+    object-position: 30% center;
+  }
+
+  .hero-content {
+    padding-top: 60px;
+  }
+
+  .hero.gifts-page {
+    min-height: 284px;
+  }
+
+  .hero-text h1 {
+    max-width: 426px;
+  }
+
+  .hero-tabs {
+    width: 474px;
+    max-width: 100%;
+  }
+
+  .hero-tabs ul {
+    padding: 0;
+  }
+
+  .hero-tabs a {
+    padding: 12px 20px;
+  }
+
   .best-caption,
   .best h2 {
     max-width: 426px;
