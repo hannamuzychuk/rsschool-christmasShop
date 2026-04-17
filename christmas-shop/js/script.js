@@ -295,6 +295,25 @@ if (giftsPageGrid && giftsPageRoot) {
   });
 }
 
+const scrollTopBtn = document.getElementById("scroll-top-btn");
+
+if (scrollTopBtn) {
+  function updateScrollTopButton() {
+    const isMobileOrTablet = window.innerWidth <= 768;
+    const isScrolledDown = window.scrollY > 300;
+
+    scrollTopBtn.classList.toggle("is-visible", isMobileOrTablet && isScrolledDown);
+  }
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", updateScrollTopButton);
+  window.addEventListener("resize", updateScrollTopButton);
+  updateScrollTopButton();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const sliderTrack = document.querySelector(".lcld-card");
   const sliderWindow = document.querySelector(".lcld-slider-window");
