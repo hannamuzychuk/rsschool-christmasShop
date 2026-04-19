@@ -468,7 +468,7 @@ margin-right: -10px;
    font-weight: 600;
    line-height: 130%;
    letter-spacing: 5%;
-   padding-bottom: 8px;
+   /* padding-bottom: 8px; */
 }
 
 .best-work {
@@ -500,7 +500,7 @@ margin-right: -10px;
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: clamp(8px, 5vw, 60px) 8px;
   z-index: 3000;
 }
 
@@ -509,8 +509,10 @@ margin-right: -10px;
 }
 
 .gift-modal {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 364px;
+  max-width: 400px;
   border-radius: 20px;
   overflow: hidden;
   background: #ecf3f8;
@@ -531,10 +533,12 @@ margin-right: -10px;
 
 .gift-modal-close span {
   position: absolute;
-  top: 19px;
-  left: 10px;
+  top: 50%;
+  left: 50%;
   width: 20px;
   height: 2px;
+  margin-left: -10px;
+  margin-top: -1px;
   background: #181c29;
 }
 
@@ -546,10 +550,18 @@ margin-right: -10px;
   transform: rotate(-45deg);
 }
 
+.gift-modal-image-wrap {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
 .gift-modal-image-wrap img {
   width: 100%;
   height: 230px;
   object-fit: cover;
+  display: block;
 }
 
 .gift-modal-content {
@@ -558,7 +570,16 @@ margin-right: -10px;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.gift-modal-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 8px;
+  width: 100%;
 }
 
 .scroll-top-btn {
@@ -622,31 +643,56 @@ margin-right: -10px;
 }
 
 .gift-modal-category {
+  margin: 0;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 600;
-  line-height: 130%;
-  letter-spacing: 5%;
+  line-height: 16px;
+  min-height: 16px;
+  letter-spacing: 0.05em;
 }
 
 .gift-modal-title {
+  margin: 0;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;
-  line-height: 152%;
-  letter-spacing: 8%;
+  line-height: 24px;
+  min-height: 24px;
+  letter-spacing: 0.08em;
+  color: #181c29;
 }
 
 .gift-modal-description {
+  margin: 0;
   font-size: 16px;
-  line-height: 148%;
-  margin-bottom: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #181c29;
+}
+
+.gift-modal-powers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.gift-modal-powers-intro {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  min-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #181c29;
 }
 
 .gift-modal-powers {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
 }
 
 .gift-modal-power-row {
@@ -654,12 +700,14 @@ margin-right: -10px;
   grid-template-columns: 1fr auto auto;
   align-items: center;
   column-gap: 12px;
+  min-height: 24px;
 }
 
 .gift-modal-power-label,
 .gift-modal-power-value {
   font-size: 16px;
-  line-height: 148%;
+  line-height: 24px;
+  color: #181c29;
 }
 
 .gift-modal-power-label {
@@ -674,7 +722,7 @@ margin-right: -10px;
 .gift-modal-stars img {
   width: 16px;
   height: 16px;
-  opacity: 0.15;
+  opacity: 0.1;
 }
 
 .gift-modal-stars img.is-active {
@@ -1145,9 +1193,6 @@ main > .hero.gifts-page + #best.best {
  .gift-card {
    margin: 0;
  }
- .gift-modal {
-   max-width: 400px;
- }
   .hero-text h1 {
     max-width: 426px;
   }
@@ -1343,10 +1388,6 @@ main > .hero.gifts-page + #best.best {
 
  .gift-card {
    margin: 0;
- }
-
- .gift-modal {
-   max-width: 400px;
  }
 
  .footer-grid {
