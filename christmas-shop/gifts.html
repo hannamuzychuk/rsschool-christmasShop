@@ -24,9 +24,9 @@
        <nav class="nav" id="nav-menu">
            <ul class="nav-list">
                <li><a href="gifts.html">Gifts</a></li>
-               <li><a href="#about">About</a></li>
-               <li><a href="#best">Best</a></li>
-               <li><a href="#contacts">Contacts</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#best">Best</a></li>
+              <li><a href="index.html#contacts">Contacts</a></li>
            </ul>
        </nav>
        </div>
@@ -178,11 +178,37 @@
                </a>
            </div>
                <div class="copyright">
-                    <p class="footer-paragraphs">&copy; Copyright 2025, All Rights Reserved</p>
+                   <p class="footer-paragraph">&copy; Copyright 2025, All Rights Reserved</p>
                     <a class="footer-link" href="https://rs.school" target="_blank">Made in Rolling Scopes School</a>
                </div>
            </div>
        </footer> 
-   <script src="js/script.js"></script>    
+  <button class="scroll-top-btn" id="scroll-top-btn" type="button" aria-label="Scroll to top">
+      <span class="scroll-top-icon" aria-hidden="true"></span>
+  </button>
+  <div class="modal-backdrop" id="gift-modal-backdrop" aria-hidden="true">
+      <article class="gift-modal" role="dialog" aria-modal="true" aria-labelledby="gift-modal-title">
+          <button class="gift-modal-close" id="gift-modal-close" type="button" aria-label="Close modal">
+              <span></span>
+              <span></span>
+          </button>
+          <div class="gift-modal-image-wrap">
+              <img id="gift-modal-image" src="" alt="">
+          </div>
+          <div class="gift-modal-content">
+              <div class="gift-modal-meta">
+              <p class="gift-modal-category" id="gift-modal-category"></p>
+              <h3 class="gift-modal-title" id="gift-modal-title"></h3>
+              <p class="gift-modal-description" id="gift-modal-description"></p>
+              </div>
+              <div class="gift-modal-powers-section">
+                  <p class="gift-modal-powers-intro">Adds superpowers to:</p>
+                  <div class="gift-modal-powers" id="gift-modal-powers"></div>
+              </div>
+          </div>
+      </article>
+  </div>
+  <script src="js/gifts-data.js"></script>
+  <script src="js/script.js"></script>    
 </body>
 </html>
