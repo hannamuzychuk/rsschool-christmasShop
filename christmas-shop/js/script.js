@@ -12,15 +12,17 @@ if (daysElement && hoursElement && minutesElement && secondsElement) {
   const now = new Date();
   const targetDate = Date.UTC(now.getUTCFullYear() + 1, 0, 1, 0, 0, 0);
 
-  setInterval(() => {
-    const currentTime = Date.now();
-    const diff = Math.max(0, targetDate - currentTime);
+  function updateCountdown() {
+    const diff = Math.max(0, targetDate - Date.now());
 
     daysElement.textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
     hoursElement.textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
     minutesElement.textContent = Math.floor((diff / (1000 * 60)) % 60);
     secondsElement.textContent = Math.floor((diff / 1000) % 60);
-  }, 1000);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 }
 
 const navTabs = document.querySelectorAll(".tabs a");
